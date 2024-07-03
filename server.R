@@ -38,7 +38,7 @@ shinyServer(function(input, output, session){
     response <- GET(url, add_headers(Authorization = paste("Basic", encoded_credentials)))
     
     if (status_code(response) == 200) {
-      content <- content(response, as = "text")
+      content <- content(response, as = "text", , encoding = "UTF-8")
       json_data <- fromJSON(content, flatten = TRUE)
       return(json_data)
     } else {
