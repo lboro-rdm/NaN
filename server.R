@@ -10,6 +10,7 @@ library(sf)
 library(openssl)
 library(readr)
 library(purrr)
+library(base64enc)
 
 # Define server logic
 shinyServer(function(input, output, session){
@@ -172,7 +173,11 @@ shinyServer(function(input, output, session){
         geom_sf(aes(fill = total_metric), color = "#24498e") +
         scale_fill_gradient(low = "#eab817", high = "#c20d21", na.value = "black") +
         theme_minimal() +
-        theme(plot.title = element_text(size = 8, colour = "#1c7748", face = "bold")) +  # Set title font size to 18pts
+        theme(
+          plot.title = element_text(size = 8, colour = "#1c7748", face = "bold"),
+          panel.background = element_rect(fill = "white", color = NA), # Explicitly set panel background
+          plot.background = element_rect(fill = "white", color = NA)  # Explicitly set plot background
+          ) +  # Set title font size to 18pts
         labs(title = paste("Named After Nelson: Lboro Repository Items -", input$metric), fill = element_blank())
       
       # Save the plot as a JPEG file

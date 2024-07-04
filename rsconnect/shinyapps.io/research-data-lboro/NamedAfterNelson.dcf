@@ -5,7 +5,7 @@ account: research-data-lboro
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 12268867
-bundleId: 8818798
+bundleId: 8824676
 url: https://research-data-lboro.shinyapps.io/NamedAfterNelson/
 version: 1
 asMultiple: FALSE
